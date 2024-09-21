@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use App\Http\Requests\TodoRequest;
 use Illuminate\Http\Request;
-
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 use Psr\Http\Message\RequestInterface;
 
 class TodoController extends Controller
@@ -26,5 +26,20 @@ class TodoController extends Controller
         Todo::create($todo);                   // Todoをデータべースに保存
 
         return redirect('/')->with('success', 'Todoを作成しました');      // リダイレクト時にメッセージを表示する
+    }
+    // public function update(Request $request)
+    // {
+    //     $todo = Todo::find($request->id);
+    //     $todo->content = $request->content;
+    //     $todo->save();
+
+    //     return redirect('/')->with('success', 'Todoを更新しました');
+    // }
+    public function update(TodoRequest $request)     // 以下のコードの方が読みやすく一般的に推奨されているコード
+    {
+        $todo = $request->only(['content']);
+        Todo::find($request->id)->update($todo);
+
+        return redirect('/')->with('success', 'Todoを更新しました');
     }
 }
