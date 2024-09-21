@@ -1,0 +1,170 @@
+/* 実行結果表示 */
+/* .todo__result {
+    margin: 0px auto;
+    padding: 10px 30px;
+} */
+.todo__result--success {
+    /* height: 50px; */
+    /* padding: 0 30px; */
+    padding: 10px 30px;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border-color: #badbcc;
+    /* line-height: 50px; */
+}
+.todo__result--error {
+    /* height: 50px; */
+    /* padding: 0 30px; */
+    padding: 10px 30px;
+    background-color: #f8d7da;
+    color: #842029;
+    border-color: #f5c2c7;
+    /* line-height: 50px; */
+}
+.todo__result--error ul{   /* これ全然発想がなかった */
+    margin: 0;
+}
+
+.todo__content{
+    /* margin: 50px auto 0; */
+    margin: 0 auto;
+    padding: 60px 15px;      /* これなかった */
+    max-width: 1230px;
+    /* text-align: center; */
+}
+.create-form{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+/* .form__group{   これの内容が上に統合される。考え方はOK
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+.create-form__item{
+    /* border: none; */
+    width: 70%;
+}
+/* .form__input-text input {
+    padding: 10px;
+    width: 500px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+} */
+.create-form__item-input{
+    padding: 10px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.create-form__button{
+    /* margin: top; */
+    width: 20%;
+}
+.create-form__button-submit{
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    /* width: 140px; */
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.todo-table{
+    width: 70%;
+    margin: 30px auto;
+    /* margin: 50px auto 0;
+    max-width: 1230px; */
+    text-align: left;
+}
+.todo-table__inner{
+    width: 100%;
+}
+.todo-table__row{
+    border-bottom: 1px solid #ddd;
+}
+/* .todo-list__content {
+    justify-content: center;
+} */
+.todo-table__header{
+    /* margin: 0px;
+    padding: 0px 0; */
+    text-align: left;
+    /* font-size: 16px;justify-content: center;
+    border-bottom: 1px solid #ddd; */
+    padding: 12px;
+    width: 20%;
+    font-weight: bold;
+}
+.todo-table__item:first-of-type{
+    padding: 12px;
+    width: 90%;
+}
+.update-form{
+    /* margin: 10px 0px;
+    padding: 10px 0px; */
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    /* border-bottom: 1px solid #ddd; */
+}
+.update-form__item{
+    width: 80%;
+    line-height: 50%;
+}
+.update-form__item-input{
+    width: 100%;
+    outline: none;
+    border: none;
+}
+/* .todo-list__todo{
+    width: 500px;
+    align-content: center;
+    text-align: left;
+}
+.todo-list__button{
+    width: 150px;
+    margin: 0px;
+    justify-content: space-between;
+} */
+.update-form__button{
+    width: 50px;
+}
+.update-form__button-submit{
+    background-color: #0000ff;
+    color: #fff;
+    /* margin: 0px 10px;
+    width: 50px;
+    height: 30px; */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+}
+.delete-form__button {
+    width: 50px;
+}
+.delete-form__button-submit{
+    background-color: #ff0000;
+    color: #fff;
+    /* width: 50px;
+    height: 30px; */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+}
+
+
