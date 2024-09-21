@@ -20,12 +20,11 @@ class TodoController extends Controller
     //     $todo = $request->only('content');
     //     return view('/');
     // }
-    public function store(Request $request)
+    public function store(TodoRequest $request)    // TodoRequestを使用
     {
-        $todo = $request->only(['content']);
-        Todo::create($todo);
+        $todo = $request->only(['content']);   // データを受け取る
+        Todo::create($todo);                   // Todoをデータべースに保存
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Todoを作成しました');      // リダイレクト時にメッセージを表示する
     }
-    
 }

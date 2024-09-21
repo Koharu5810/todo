@@ -6,9 +6,20 @@
 
 @section('content')
 <div class="todo__result">
+    @if(session('success'))
     <div class="todo__result--success">
-        Todoを作成しました
+        {{ session('success') }}
     </div>
+    @endif
+    @if($errors -> any())
+    <div class="todo__result--error">
+        <ul>
+            @foreach($errors -> all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 </div>
 
 <div class="todo__content">
