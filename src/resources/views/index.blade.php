@@ -39,7 +39,7 @@
             <tr class="todo-table__row">
                 <th class="todo-table__header">Todo</th>
             </tr>
-<!-- Todo編集欄 -->
+            <!-- 更新機能 -->
             @foreach($todos as $todo)
             <tr class="todo-table__row">
                 <td class="todo-table__item">
@@ -55,9 +55,13 @@
                         </div>
                     </form>
                 </td>
+                <!-- 削除機能 -->
                 <td class="todo-table__item">
-                    <form class="delete-form">
+                    <form class="delete-form" action="todos/delete" method="post">
+                        @csrf
+                        @method('DELETE')
                         <div class="delete-form__button">
+                            <input type="hidden" name="id" value="{{ $todo['id'] }}">
                             <button class="delete-form__button-submit" type="submit">削除</button>
                         </div>
                     </form>

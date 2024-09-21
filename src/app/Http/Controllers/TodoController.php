@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use App\Http\Requests\TodoRequest;
 use Illuminate\Http\Request;
-use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
-use Psr\Http\Message\RequestInterface;
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;   // モックオブジェクトのメソッドが返す方を定義するためのノード
+use Psr\Http\Message\RequestInterface;   // コードの互換性や互換性を向上させるためのガイドラインを提供
 
 class TodoController extends Controller
 {
@@ -41,5 +41,17 @@ class TodoController extends Controller
         Todo::find($request->id)->update($todo);
 
         return redirect('/')->with('success', 'Todoを更新しました');
+    }
+    // public function destroy(Request $request)
+    // {
+    //     $todo = Todo::findOrFail($request->id);
+    //     $todo->delete();
+
+    //     return redirect('/')->with('success', 'Todoを削除しました');
+    // }
+    public function destroy(Request $request)
+    {
+        Todo::find($request->id)->delete();
+        return redirect('/')->with('success', 'Todoを削除しました');
     }
 }
