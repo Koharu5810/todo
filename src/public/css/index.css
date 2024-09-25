@@ -28,14 +28,22 @@
 .todo__content{
     /* margin: 50px auto 0; */
     margin: 0 auto;
-    padding: 60px 15px;      /* これなかった */
+    /* padding: 60px 15px;      初級作成時これ抜けた→中級時修正 */
+    padding: 30px 15px;
     max-width: 1230px;
     /* text-align: center; */
 }
-.create-form{
+
+.section__title{
+    margin: 0 auto;
+    width: 70%;
+}
+/* .create-form{ */
+    .create-form, .search-form{
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
+    margin-bottom: 15px;
     width: 70%;
     text-align: center;
 }
@@ -47,7 +55,9 @@
     justify-content: space-between;
     align-items: center;
 } */
-.create-form__item{
+/* .create-form__item{ */
+.create-form__item, .search-form__item{
+    display: flex;
     /* border: none; */
     width: 70%;
 }
@@ -57,18 +67,31 @@
     border: 1px solid #ddd;
     border-radius: 3px;
 } */
-.create-form__item-input{
+/* .create-form__item-input{ */
+.create-form__item-input, .search-form__item-input {
+    margin-right: 10px;
     padding: 10px;
-    width: 100%;
+    /* width: 100%; 中級で修正 */
+    width: 70%;
     height: 40px;
     border: 1px solid #ddd;
     border-radius: 3px;
 }
-.create-form__button{
+.create-form__item-select, .search-form__item-select{
+    padding: 10px;
+    width: 30%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    appearance: none;
+}
+/* .create-form__button{ */
+.create-form__button, .search-form__button{
     /* margin: top; */
     width: 20%;
 }
-.create-form__button-submit{
+/* .create-form__button-submit{ */
+.create-form__button-submit, .search-form__button-submit {
     background-color: #000;
     color: #fff;
     padding: 10px;
@@ -106,6 +129,9 @@
     width: 20%;
     font-weight: bold;
 }
+.todo-table__header-span{
+    margin-right: 40%;
+}
 .todo-table__item:first-of-type{
     padding: 12px;
     width: 90%;
@@ -119,7 +145,8 @@
     /* border-bottom: 1px solid #ddd; */
 }
 .update-form__item{
-    width: 80%;
+    /* width: 80%; 中級で修正 */
+    width: 40%;
     line-height: 50%;
 }
 .update-form__item-input{
@@ -137,6 +164,10 @@
     margin: 0px;
     justify-content: space-between;
 } */
+.update-form__item-p{
+    text-align: left;
+    font-size: 13px;
+}
 .update-form__button{
     width: 50px;
 }
