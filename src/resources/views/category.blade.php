@@ -24,10 +24,10 @@
 
 <div class="category__content">
     <!-- カテゴリ入力欄 -->
-    <form class="create-form" action="/" method="">
+    <form class="create-form" action="/categories" method="post">
         @csrf
         <div class="create-form__item">
-            <input class="create-form__item-input" type="text" name="content" value="{{ old('content') }}" />
+            <input class="create-form__item-input" type="text" name="name" value="{{ old('name') }}" />
         </div>
         <div class="create-form__button">
             <button class="create-form__button-submit" type="submit">作成</button>
@@ -43,11 +43,12 @@
             @foreach ($categories as $category)
             <tr class=" category-table__row">
                 <td class="category-table__item">
-                    <form class="update-form" action="" method="post">
+                    <form class="update-form" action="/categories" method="post">
                         @csrf
                         @method('PATCH')
                         <div class="update-form__item">
-                            <input class="update-form__item-input" type="text" name="content" value="">
+                            <!-- <input class="update-form__item-input" type="text" name="content" value="{{ $category['name'] }}" /> -->
+                            <input class="update-form__item-input" type="text" value="{{ $category['name'] }}" />
                         </div>
                         <div class="update-form__button">
                             <button class="update-form__button-submit" type="submit">更新</button>
