@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo;
+use App\Models\Category;
 use App\Http\Requests\TodoRequest;
 use Illuminate\Http\Request;
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;   // モックオブジェクトのメソッドが返す方を定義するためのノード
@@ -12,8 +13,10 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
-        return view('index', compact('todos'));
+        // $todos = Todo::all();  中級で修正
+        $todos = Todo::with('category')->get();
+        $categories = Category::all();
+        return view('index', compact('todos', 'categories'));
     }
     // public function store(Request $request)
     // {
@@ -22,7 +25,7 @@ class TodoController extends Controller
     // }
     public function store(TodoRequest $request)    // TodoRequestを使用
     {
-        $todo = $request->only(['content']);   // データを受け取る
+        $todo = $request->only(['content', 'category_id']);   // データを受け取る
         Todo::create($todo);                   // Todoをデータべースに保存
 
         return redirect('/')->with('success', 'Todoを作成しました');      // リダイレクト時にメッセージを表示する
