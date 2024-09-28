@@ -21,9 +21,20 @@ class Todo extends Model
     // {
     //     return $this->belongsTo('App\Models\Todo');
     // }
-    public function category()
+    public function category()                    // リレーション
     {
         return $this->belongsTo(Category::class);
     }
-
+    public function scopeCategorySearch($query, $category_id)    // 検索機能
+    {
+        if (!empty($category_id)) {
+            $query->where('category_id', $category_id);
+        }
+    }
+    public function scopeKeywordSearch($query, $keyword)      // 検索機能
+    {
+        if (!empty($keyword)) {
+            $query->where('content', 'like', '%' . $keyword . '%');
+        }
+    }
 }
