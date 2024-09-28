@@ -23,4 +23,11 @@ class CategoryController extends Controller
         // return redirect('/category')->with('success', 'カテゴリを作成しました');
         return redirect('/categories')->with('success', 'カテゴリを作成しました');
     }
+    public function update(CategoryRequest $request)
+    {
+        $category = $request->only('name');
+        Category::find($request->id)->update($category);
+
+        return redirect('/categories')->with('success', 'カテゴリを更新しました');
+    }
 }
